@@ -3,75 +3,171 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-image: url('Images/Background1.jpg'); /* Path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-nav {
+/* Top Bar */
+.top-bar {
     background-color: #333;
     color: white;
-    padding: 10px 20px;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
-nav ul {
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 38px; /* Adjusted to align with the top bar */
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 10px;
+    width: 150px;
+    height: calc(100% - 38px); /* Full height minus top bar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-nav ul li {
-    margin: 0 15px;
+.navbar ul li {
+    margin: 10px 0;
 }
 
-nav ul li a {
+.navbar ul li a {
     color: white;
     text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 50%;
+    display: block;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+.navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Darker transparent background on hover */
 }
 
+.navbar ul li a.active {
+    background-color: grey; /* Grey background for active link */
+}
+
+/* Main Content */
 main {
-    padding: 20px;
+    padding: 80px 20px; /* Adjust padding to account for fixed top bar */
+    margin-left: 220px; /* Adjust margin to account for vertical navbar */
     text-align: center;
 }
 
-form {
+/* Footer */
+.footer {
+    background-color: #1d1d1d;
+    color: #ddd;
+    padding: 10px 20px;
+    font-size: 12px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
 }
 
-form label {
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Spreads sections evenly */
+    align-items: flex-start; /* Aligns items at the top */
+    flex-wrap: nowrap;
+    gap: 100px; /* Adds space between sections */
+}
+
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section a, .footer-section li {
+    color: #ddd;
+    text-decoration: none;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-bottom {
     margin-top: 10px;
+    text-align: center;
+    font-size: 10px;
+    width: 100%;
 }
 
-form input, form textarea, form button {
-    padding: 10px;
-    margin-top: 5px;
+.social-icon {
+    color: #ddd;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 16px;
 }
 
-form button {
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
+.social-icon:hover {
+    color: #fff;
 }
 
-form button:hover {
-    background-color: #555;
-}
-
+/* Responsive Design */
 @media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
+    .navbar {
+        width: 100%;
+        height: auto;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        padding: 10px 0;
+    }
+    
+    .navbar ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .navbar ul li {
+        margin: 0 10px;
+    }
+    
+    main {
+        margin-left: 0;
+        padding: 20px;
     }
 
-    nav ul li {
-        margin: 10px 0;
-    }
+    .footer-container {
+            flex-wrap: wrap; /* Allows wrapping */
+            flex-direction: column; /* Stacks sections vertically */
+            align-items: center; /* Centers sections horizontally */
+     }
+    
 }
